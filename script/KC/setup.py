@@ -20,7 +20,7 @@ REPO = {
     'ReForge': '-b main-old https://github.com/Panchovix/stable-diffusion-webui-reForge ReForge',
     'Forge-Classic': 'https://github.com/Haoming02/sd-webui-forge-classic Forge-Classic',
     'Forge-Neo': '-b neo https://github.com/Haoming02/sd-webui-forge-classic Forge-Neo',
-    'ComfyUI': 'https://github.com/comfyanonymous/ComfyUI',
+    'ComfyUI': 'https://github.com/Comfy-Org/ComfyUI',
     'SwarmUI': 'https://github.com/mcmonkeyprojects/SwarmUI'
 }
 
@@ -71,7 +71,7 @@ def getArgs():
 
 def getPython():
     hao = webui in ['Forge-Classic', 'Forge-Neo']
-    v = '3.11' if hao else '3.10'
+    v = '3.11' if hao else '3.12'
     BIN = str(PY / 'bin')
     PKG = str(PY / f'lib/python{v}/site-packages')
 
@@ -86,7 +86,7 @@ def getPython():
     fn = Path(url).name
 
     CD(Path(ENVBASE).parent)
-    print(f"\n{ARROW} installing Python Portable {'3.11.13' if hao else '3.10.15'}")
+    print(f"\n{ARROW} installing Python Portable {'3.11.13' if hao else '3.12.x'}")
 
     SyS('sudo apt-get -qq -y install aria2 pv lz4 > /dev/null 2>&1')
 
@@ -106,7 +106,7 @@ def getPython():
     if ENVNAME == 'Kaggle':
         for cmd in [
             'pip install ipywidgets jupyterlab_widgets --upgrade',
-            'rm -f /usr/lib/python3.10/sitecustomize.py'
+            'rm -f /usr/lib/python3.12/sitecustomize.py'
         ]:
             SyS(f'{cmd} > /dev/null 2>&1')
 
