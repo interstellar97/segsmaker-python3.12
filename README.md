@@ -1,4 +1,4 @@
-# Stable Diffusion Webui
+# Stable Diffusion Webui, Now with python 3.12 support for ComfyUI!
 - A1111
 - Forge
 - ReForge
